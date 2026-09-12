@@ -2,7 +2,7 @@
 
 A custom vector database built from scratch using pure Python and NumPy, featuring both an exact brute-force index and an approximate Inverted File Index (IVF-Flat).
 
-## How to Run
+## How to run it
 
 1. Install dependencies:
    ```bash
