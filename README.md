@@ -1,0 +1,5 @@
+The Knob (Speed vs. Accuracy):
+The tuning parameter is nprobe (the number of centroid partitions inspected). At nprobe=1, queries only scan the single closest cluster, yielding the highest throughput (maximum QPS) but lower recall (~30–40%). As nprobe is increased to 32 or 64, the search examines significantly more candidate vectors, driving Recall@10 above 95% while decreasing overall QPS.
+
+Deletion Architecture (Why Deletion is Hard):
+Deleting vectors from an inverted index breaks partition balance and invalidates precomputed centroid representations. Recomputing clusters on every single deletion introduces a costly O(N \cdot K) overhead. To avoid continuous re-indexing, this implementation uses Tombstone Bitmasks: deleted IDs are flagged in a constant-time tracking set/mask and dynamically filtered during the candidate scoring phase.
